@@ -1,4 +1,6 @@
-<html lang="en"><head>
+<html lang="en">
+<head>
+    {% load staticfiles %}
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
@@ -33,15 +35,15 @@
 <body>
 <header>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <a class="navbar-brand" href="#">John Sorgon</a>
+        <a class="navbar-brand" href="{% url 'home' %}">John Sorgon</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div class="navbar-nav ml-auto">
-                <a class="nav-item nav-link" href="#">Instagram</a>
+                <a class="nav-item nav-link" href="https://www.instagram.com/alfiantegar_" target="_blank">Instagram</a>
                 <a class="nav-item nav-link" href="#">Resume</a>
-                <a class="nav-item nav-link" href="#">Blog</a>
+                <a class="nav-item nav-link" href="{% url 'allblogs' %}">Blog</a>
             </div>
         </div>
     </nav>
@@ -54,8 +56,9 @@
             <h1 class="jumbotron-heading">Hi, Im Alfian</h1>
             <p class="lead text-muted">Hey, My name is Alfian Tegar Putra Afandi and I love to make Django websites. It's the thrill of handling the requsets that the people want!</p>
             <p>
-                <a href="mailto:alfiantegar19@gmail.com" target="_blank" class="btn btn-primary my-2">Email Me</a>
+                <a href="{% url 'admin:index' %}" target="_blank" class="btn btn-danger my-2">Hire Me Now</a>
             </p>
+            <img src="{% static 'alexandra_daddario-9.jpg' %}" alt="" height="300">
         </div>
     </section>
 
@@ -64,7 +67,7 @@
 
             <div class="row">
 
-            {%for job in jobs.all %}
+                {%for job in jobs.all %}
 
                 <div class="col-md-4">
                     <div class="card mb-4 shadow-sm">
@@ -75,7 +78,7 @@
                     </div>
                 </div>
 
-            {% endfor %}
+                {% endfor %}
 
             </div>
         </div>
